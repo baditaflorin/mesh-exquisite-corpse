@@ -4,7 +4,7 @@
 [![version](https://img.shields.io/badge/version-0.1.1-blue)](https://github.com/baditaflorin/mesh-exquisite-corpse/blob/main/package.json)
 [![license](https://img.shields.io/badge/license-MIT-green)](./LICENSE)
 
-> Three-peer collaborative drawing — head, body, legs hidden until reveal
+> The party drawing game, peer-to-peer: three people each draw head, body, or legs blind — reveal stitches them into one surreal creature.
 
 Live: **https://baditaflorin.github.io/mesh-exquisite-corpse/**
 
@@ -16,7 +16,11 @@ Tip the dev: **https://www.paypal.com/paypalme/florinbadita**
 
 ## What it is
 
-Peer-to-peer browser app, no backend of its own beyond the self-hosted WebRTC stack listed below. Built on `@baditaflorin/mesh-common`, hosted on GitHub Pages from `docs/`.
+The classic surrealist parlour game **exquisite corpse**, in your browser. Three players each claim one strip — **head**, **body**, or **legs** — and draw it without seeing the others' work. When all three mark "done", anyone can hit **reveal** and the three strips composite into one absurd creature on every peer's screen at once. Hit **new round** to clear and play again.
+
+**Try it:** open the live link in **three browser tabs** (they auto-join the same room). Claim a different part in each tab, scribble something, mark each one done, then reveal — the assembled corpse appears in all three.
+
+No backend of its own beyond the self-hosted WebRTC stack listed below. Built on `@baditaflorin/mesh-common`, hosted on GitHub Pages from `docs/`.
 
 ## Quickstart (local)
 

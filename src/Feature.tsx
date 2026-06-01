@@ -232,6 +232,10 @@ function Body({ room, config }: { room: YRoom; config: MeshConfig }) {
     <div className="exq-screen">
       <header className="exq-header">
         <h1>exquisite corpse</h1>
+        <p className="exq-tagline">
+          The party drawing game: three people each draw one body part — head, body, legs — without
+          seeing the others. Hit reveal and the surreal creature is stitched together.
+        </p>
         <p className="exq-status">
           phase: {phase} ·{" "}
           {Array.from(occupants.entries())
@@ -239,7 +243,7 @@ function Body({ room, config }: { room: YRoom; config: MeshConfig }) {
               const s = strips.get(peer) as StoredStrip | undefined;
               return `${STRIP_LABELS[i]}: ${s?.name}${s?.done ? " ✓" : ""}`;
             })
-            .join(" · ") || "open"}
+            .join(" · ") || "no parts claimed yet"}
         </p>
       </header>
 
@@ -274,8 +278,8 @@ function Body({ room, config }: { room: YRoom; config: MeshConfig }) {
       {phase === "drawing" && (
         <p className="exq-instructions">
           {myStripIdx === null
-            ? "claim a strip above to draw"
-            : `you are drawing the ${STRIP_LABELS[myStripIdx]}. others can't see your work until reveal.`}
+            ? "Claim head, body, or legs above to start drawing. You need all three taken by three people (open three tabs to try solo) before the corpse can be revealed."
+            : `You're drawing the ${STRIP_LABELS[myStripIdx]} — no one else sees it until reveal. Mark “done” when finished; reveal unlocks once all three parts are done.`}
         </p>
       )}
 

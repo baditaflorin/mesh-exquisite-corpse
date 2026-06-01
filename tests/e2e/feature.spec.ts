@@ -108,6 +108,16 @@ test("a peer's strokes are hidden until reveal, then composite onto the other pe
     await expect
       .poll(async () => (await canvasDataUrl(b)) !== bBefore, { timeout: 4000 })
       .toBe(true);
+
+    // CROSS-PEER RESET: "new round" on one peer must clear the shared strips
+    // Y.Map and flip the phase back to drawing for EVERY peer — proving the
+    // reset transaction replicates, not just resets locally.
+    await a.locator(".exq-newround-btn").click();
+    await expect(b.locator(".exq-status")).toContainText("phase: drawing");
+    await expect(c.locator(".exq-status")).toContainText("phase: drawing");
+    // All claims are gone everywhere: every strip button reads "open" again.
+    await expect(b.locator(".exq-claim").filter({ hasText: "alice" })).toHaveCount(0);
+    await expect(c.locator(".exq-status")).toContainText("no parts claimed yet");
   } finally {
     await cleanup();
   }

@@ -38,6 +38,13 @@ body,
   color: var(--mesh-accent);
 }
 
+.exq-tagline {
+  margin: 0 0 0.4rem;
+  font-size: 0.9rem;
+  line-height: 1.45;
+  opacity: 0.85;
+}
+
 .exq-status {
   margin: 0;
   opacity: 0.7;
